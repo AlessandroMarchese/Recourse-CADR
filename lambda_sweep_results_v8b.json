@@ -1,0 +1,660 @@
+{
+  "config": {
+    "D_X": 5,
+    "N_OBS": 3000,
+    "N_VAL": 1500,
+    "N_RCT_VAL": 500,
+    "N_TEST": 3000,
+    "N_EPOCHS": 1000,
+    "PATIENCE": 100,
+    "EVAL_EVERY": 50,
+    "T_MIN": -3.0,
+    "T_MAX": 3.0,
+    "OBS_T_MAX": 0.0,
+    "G_SHIFT": -2.0,
+    "CF_SAMPLES_PER_UNIT": 4,
+    "PRESAMPLE_CF": true,
+    "U_Y_DIST": "gumbel",
+    "U_Y_SCALE": 2.0,
+    "NUISANCE_MODE": "analytical",
+    "SIGMA_T": 0.8,
+    "N_SEEDS_SWEEP": 1
+  },
+  "lambda_grid": [
+    0.01,
+    0.03,
+    0.1,
+    0.3,
+    1.0,
+    3.0
+  ],
+  "variance_source": "across-units",
+  "results": {
+    "MLP-regressor (+recourse, LB)": {
+      "0.01": {
+        "val_mise_mean": 0.08875330990500811,
+        "val_mise_std": 0.10236225845460985,
+        "test_mise_mean": 0.08682483193815028,
+        "test_mise_std": 0.10386573531656176
+      },
+      "0.03": {
+        "val_mise_mean": 0.04997835573036852,
+        "val_mise_std": 0.06148231688321354,
+        "test_mise_mean": 0.049452767982630014,
+        "test_mise_std": 0.06299490525283889
+      },
+      "0.1": {
+        "val_mise_mean": 0.034251678287857086,
+        "val_mise_std": 0.036194748261127285,
+        "test_mise_mean": 0.033775319218376426,
+        "test_mise_std": 0.03699949571583129
+      },
+      "0.3": {
+        "val_mise_mean": 0.04113722046049636,
+        "val_mise_std": 0.03693837564518537,
+        "test_mise_mean": 0.04061697998718959,
+        "test_mise_std": 0.03720534596091391
+      },
+      "1.0": {
+        "val_mise_mean": 0.07651535009821989,
+        "val_mise_std": 0.06466762513105268,
+        "test_mise_mean": 0.07759787654510923,
+        "test_mise_std": 0.06833373195321858
+      },
+      "3.0": {
+        "val_mise_mean": 0.14663576609806292,
+        "val_mise_std": 0.12451455257322375,
+        "test_mise_mean": 0.14939412516761555,
+        "test_mise_std": 0.12871723587595968
+      }
+    },
+    "MLP-regressor (+recourse, unweighted)": {
+      "0.01": {
+        "val_mise_mean": 0.1049696138918968,
+        "val_mise_std": 0.11641507401160835,
+        "test_mise_mean": 0.10216826818715145,
+        "test_mise_std": 0.11780827257861007
+      },
+      "0.03": {
+        "val_mise_mean": 0.06654305980623677,
+        "val_mise_std": 0.0759921673821277,
+        "test_mise_mean": 0.06565138840800429,
+        "test_mise_std": 0.07737134831918487
+      },
+      "0.1": {
+        "val_mise_mean": 0.052519138015898505,
+        "val_mise_std": 0.04610104210589413,
+        "test_mise_mean": 0.051964147466373956,
+        "test_mise_std": 0.04651505483906327
+      },
+      "0.3": {
+        "val_mise_mean": 0.07605234896160315,
+        "val_mise_std": 0.06836652948005398,
+        "test_mise_mean": 0.07456698111685967,
+        "test_mise_std": 0.07898221801587822
+      },
+      "1.0": {
+        "val_mise_mean": 0.14184138021542206,
+        "val_mise_std": 0.11196550198530776,
+        "test_mise_mean": 0.13914282747116663,
+        "test_mise_std": 0.12253854550895775
+      },
+      "3.0": {
+        "val_mise_mean": 0.2860471304370794,
+        "val_mise_std": 0.2475617494251098,
+        "test_mise_mean": 0.2944537448701263,
+        "test_mise_std": 0.25825929698336236
+      }
+    },
+    "TARNet (+recourse, LB)": {
+      "0.01": {
+        "val_mise_mean": 0.138665865489821,
+        "val_mise_std": 0.06264437936996022,
+        "test_mise_mean": 0.1367562524198997,
+        "test_mise_std": 0.06286512299532483
+      },
+      "0.03": {
+        "val_mise_mean": 0.1373383652022917,
+        "val_mise_std": 0.06253198443059528,
+        "test_mise_mean": 0.13550274808941246,
+        "test_mise_std": 0.062402726237183244
+      },
+      "0.1": {
+        "val_mise_mean": 0.13380485246302823,
+        "val_mise_std": 0.05972728978886212,
+        "test_mise_mean": 0.13195748029266555,
+        "test_mise_std": 0.059504303217769575
+      },
+      "0.3": {
+        "val_mise_mean": 0.1305776827012282,
+        "val_mise_std": 0.0551410427311803,
+        "test_mise_mean": 0.12735294152555102,
+        "test_mise_std": 0.053925689161429056
+      },
+      "1.0": {
+        "val_mise_mean": 0.1263981331320243,
+        "val_mise_std": 0.049922935392854015,
+        "test_mise_mean": 0.1251124345593369,
+        "test_mise_std": 0.050056745423723244
+      },
+      "3.0": {
+        "val_mise_mean": 0.1348663400362941,
+        "val_mise_std": 0.05799777311678471,
+        "test_mise_mean": 0.13398619497863073,
+        "test_mise_std": 0.059835188953315174
+      }
+    },
+    "TARNet (+recourse, unweighted)": {
+      "0.01": {
+        "val_mise_mean": 0.23257223188572596,
+        "val_mise_std": 0.10595865403348433,
+        "test_mise_mean": 0.23205215698123108,
+        "test_mise_std": 0.10836770374438144
+      },
+      "0.03": {
+        "val_mise_mean": 0.2356150812412858,
+        "val_mise_std": 0.09581874204050876,
+        "test_mise_mean": 0.23309926818834728,
+        "test_mise_std": 0.09588943929997625
+      },
+      "0.1": {
+        "val_mise_mean": 0.23415952007078486,
+        "val_mise_std": 0.11196867032091447,
+        "test_mise_mean": 0.2339545730700661,
+        "test_mise_std": 0.11471509652825179
+      },
+      "0.3": {
+        "val_mise_mean": 0.2252081863028224,
+        "val_mise_std": 0.11007464769655302,
+        "test_mise_mean": 0.22355840751211273,
+        "test_mise_std": 0.11385309899296361
+      },
+      "1.0": {
+        "val_mise_mean": 0.22873123858783118,
+        "val_mise_std": 0.12007465912073277,
+        "test_mise_mean": 0.23058693201632696,
+        "test_mise_std": 0.12707833832290436
+      },
+      "3.0": {
+        "val_mise_mean": 0.2646878209115295,
+        "val_mise_std": 0.13950710160723487,
+        "test_mise_mean": 0.2689996183356387,
+        "test_mise_std": 0.1479987704127174
+      }
+    },
+    "DRNet (+recourse, LB)": {
+      "0.01": {
+        "val_mise_mean": 0.15457032539206841,
+        "val_mise_std": 0.1279770757565696,
+        "test_mise_mean": 0.15385764222369355,
+        "test_mise_std": 0.12780926972741502
+      },
+      "0.03": {
+        "val_mise_mean": 0.17045803081908478,
+        "val_mise_std": 0.157416271951112,
+        "test_mise_mean": 0.16991862241350908,
+        "test_mise_std": 0.15542331586438438
+      },
+      "0.1": {
+        "val_mise_mean": 0.18227086089911096,
+        "val_mise_std": 0.17650782441102517,
+        "test_mise_mean": 0.18148319012770844,
+        "test_mise_std": 0.17321524271231006
+      },
+      "0.3": {
+        "val_mise_mean": 0.19636296355582067,
+        "val_mise_std": 0.19788691291071372,
+        "test_mise_mean": 0.19737177808698145,
+        "test_mise_std": 0.19525541642808802
+      },
+      "1.0": {
+        "val_mise_mean": 0.20983263764505847,
+        "val_mise_std": 0.20763396761471897,
+        "test_mise_mean": 0.21439550592428372,
+        "test_mise_std": 0.2094997075846377
+      },
+      "3.0": {
+        "val_mise_mean": 0.2506145805016742,
+        "val_mise_std": 0.23077609093323945,
+        "test_mise_mean": 0.2587139678094078,
+        "test_mise_std": 0.23417463588693563
+      }
+    },
+    "DRNet (+recourse, unweighted)": {
+      "0.01": {
+        "val_mise_mean": 0.23441009323776074,
+        "val_mise_std": 0.19941363065211068,
+        "test_mise_mean": 0.2348135171298475,
+        "test_mise_std": 0.19825687361986574
+      },
+      "0.03": {
+        "val_mise_mean": 0.2534874614379399,
+        "val_mise_std": 0.234421316593122,
+        "test_mise_mean": 0.25460559997496457,
+        "test_mise_std": 0.233342452996822
+      },
+      "0.1": {
+        "val_mise_mean": 0.2715274754061137,
+        "val_mise_std": 0.26010294099816667,
+        "test_mise_mean": 0.2731211748384977,
+        "test_mise_std": 0.25915881351436315
+      },
+      "0.3": {
+        "val_mise_mean": 0.30140118655925197,
+        "val_mise_std": 0.29420911884930506,
+        "test_mise_mean": 0.30500457575146206,
+        "test_mise_std": 0.29546322833714334
+      },
+      "1.0": {
+        "val_mise_mean": 0.3587927206532319,
+        "val_mise_std": 0.3493245593396841,
+        "test_mise_mean": 0.36464110606647715,
+        "test_mise_std": 0.35293616149718793
+      },
+      "3.0": {
+        "val_mise_mean": 0.4331745958987254,
+        "val_mise_std": 0.4023482780116143,
+        "test_mise_mean": 0.4414759472724994,
+        "test_mise_std": 0.40987243064579193
+      }
+    },
+    "VCNet (+recourse, LB)": {
+      "0.01": {
+        "val_mise_mean": 0.07292718930065013,
+        "val_mise_std": 0.07197189998448993,
+        "test_mise_mean": 0.06925991223388886,
+        "test_mise_std": 0.07279885280780286
+      },
+      "0.03": {
+        "val_mise_mean": 0.05837859213875074,
+        "val_mise_std": 0.06626470718428781,
+        "test_mise_mean": 0.05673387331533532,
+        "test_mise_std": 0.06361963464962407
+      },
+      "0.1": {
+        "val_mise_mean": 0.044305766250765856,
+        "val_mise_std": 0.05186612323270393,
+        "test_mise_mean": 0.04303207954677356,
+        "test_mise_std": 0.049316942385617256
+      },
+      "0.3": {
+        "val_mise_mean": 0.03349197794289558,
+        "val_mise_std": 0.04333351704126438,
+        "test_mise_mean": 0.03460228356405923,
+        "test_mise_std": 0.04631153946875395
+      },
+      "1.0": {
+        "val_mise_mean": 0.046760907142320944,
+        "val_mise_std": 0.05267257463821413,
+        "test_mise_mean": 0.04757766647413809,
+        "test_mise_std": 0.0542914505587383
+      },
+      "3.0": {
+        "val_mise_mean": 0.08770017376156616,
+        "val_mise_std": 0.07707820097315754,
+        "test_mise_mean": 0.08877188921738355,
+        "test_mise_std": 0.07911874636793696
+      }
+    },
+    "VCNet (+recourse, unweighted)": {
+      "0.01": {
+        "val_mise_mean": 0.0732802077862792,
+        "val_mise_std": 0.08045958994229195,
+        "test_mise_mean": 0.06956871652821608,
+        "test_mise_std": 0.07944922622471848
+      },
+      "0.03": {
+        "val_mise_mean": 0.0659719745000913,
+        "val_mise_std": 0.08533258721045006,
+        "test_mise_mean": 0.06436978021963019,
+        "test_mise_std": 0.07846297056819944
+      },
+      "0.1": {
+        "val_mise_mean": 0.048897435465300815,
+        "val_mise_std": 0.05959090735561338,
+        "test_mise_mean": 0.047475065584823936,
+        "test_mise_std": 0.05545197639941492
+      },
+      "0.3": {
+        "val_mise_mean": 0.047815205485204584,
+        "val_mise_std": 0.052215511004003685,
+        "test_mise_mean": 0.04822392354484014,
+        "test_mise_std": 0.05360607927903713
+      },
+      "1.0": {
+        "val_mise_mean": 0.09383831437060587,
+        "val_mise_std": 0.07434561056367027,
+        "test_mise_mean": 0.09267981022236034,
+        "test_mise_std": 0.07378496324804348
+      },
+      "3.0": {
+        "val_mise_mean": 0.21440180125012642,
+        "val_mise_std": 0.14824652130810767,
+        "test_mise_mean": 0.2170044003930971,
+        "test_mise_std": 0.1526640603268162
+      }
+    },
+    "TransTEE (+recourse, LB)": {
+      "0.01": {
+        "val_mise_mean": 0.057372204341152366,
+        "val_mise_std": 0.08848036338625412,
+        "test_mise_mean": 0.05635071785464774,
+        "test_mise_std": 0.0938255902647995
+      },
+      "0.03": {
+        "val_mise_mean": 0.057593535053206364,
+        "val_mise_std": 0.08699783463423887,
+        "test_mise_mean": 0.05548117575575033,
+        "test_mise_std": 0.09279055342610634
+      },
+      "0.1": {
+        "val_mise_mean": 0.06694941901392892,
+        "val_mise_std": 0.09291096169455615,
+        "test_mise_mean": 0.06423687380407242,
+        "test_mise_std": 0.0940071829618893
+      },
+      "0.3": {
+        "val_mise_mean": 0.0880384680834652,
+        "val_mise_std": 0.10978083779404046,
+        "test_mise_mean": 0.08206381352949119,
+        "test_mise_std": 0.1040388184732777
+      },
+      "1.0": {
+        "val_mise_mean": 0.14629523311938752,
+        "val_mise_std": 0.16617630163781885,
+        "test_mise_mean": 0.1358997048409395,
+        "test_mise_std": 0.1560684262220394
+      },
+      "3.0": {
+        "val_mise_mean": 0.22743176873386722,
+        "val_mise_std": 0.21599940249253016,
+        "test_mise_mean": 0.2168392757671906,
+        "test_mise_std": 0.20867726363060773
+      }
+    },
+    "TransTEE (+recourse, unweighted)": {
+      "0.01": {
+        "val_mise_mean": 0.08481260228424344,
+        "val_mise_std": 0.09218122213823582,
+        "test_mise_mean": 0.08268619520903644,
+        "test_mise_std": 0.09798475004171057
+      },
+      "0.03": {
+        "val_mise_mean": 0.08706437478981364,
+        "val_mise_std": 0.09830375288014481,
+        "test_mise_mean": 0.08443873840369931,
+        "test_mise_std": 0.09945992168993055
+      },
+      "0.1": {
+        "val_mise_mean": 0.11534219434134818,
+        "val_mise_std": 0.10365658457844489,
+        "test_mise_mean": 0.11205127090939865,
+        "test_mise_std": 0.10487061092055398
+      },
+      "0.3": {
+        "val_mise_mean": 0.15439195134093261,
+        "val_mise_std": 0.13968326151027116,
+        "test_mise_mean": 0.14742444731891471,
+        "test_mise_std": 0.13334179126962872
+      },
+      "1.0": {
+        "val_mise_mean": 0.253564103936166,
+        "val_mise_std": 0.23550018472520673,
+        "test_mise_mean": 0.24445549851568368,
+        "test_mise_std": 0.2246555160525364
+      },
+      "3.0": {
+        "val_mise_mean": 0.3858442077099301,
+        "val_mise_std": 0.3428689514923977,
+        "test_mise_mean": 0.38048746764385,
+        "test_mise_std": 0.33748961815222966
+      }
+    },
+    "ADMIT (+recourse, LB)": {
+      "0.01": {
+        "val_mise_mean": 0.13184783671451875,
+        "val_mise_std": 0.09859009746245136,
+        "test_mise_mean": 0.13210540233457732,
+        "test_mise_std": 0.09846967463785293
+      },
+      "0.03": {
+        "val_mise_mean": 0.13362502804491963,
+        "val_mise_std": 0.10210798396809112,
+        "test_mise_mean": 0.133715272775974,
+        "test_mise_std": 0.10115506043468475
+      },
+      "0.1": {
+        "val_mise_mean": 0.14673894475395882,
+        "val_mise_std": 0.12832685450747836,
+        "test_mise_mean": 0.1470012753046137,
+        "test_mise_std": 0.12753962485551087
+      },
+      "0.3": {
+        "val_mise_mean": 0.1705996152335921,
+        "val_mise_std": 0.16494164590679966,
+        "test_mise_mean": 0.17082286551439965,
+        "test_mise_std": 0.16313501975926092
+      },
+      "1.0": {
+        "val_mise_mean": 0.20297396197290066,
+        "val_mise_std": 0.19577466886354722,
+        "test_mise_mean": 0.20701841420224767,
+        "test_mise_std": 0.19561580707173762
+      },
+      "3.0": {
+        "val_mise_mean": 0.2437598929356572,
+        "val_mise_std": 0.22270368189241097,
+        "test_mise_mean": 0.25343541840939343,
+        "test_mise_std": 0.22691555781521677
+      }
+    },
+    "ADMIT (+recourse, unweighted)": {
+      "0.01": {
+        "val_mise_mean": 0.22468385981833155,
+        "val_mise_std": 0.18732759994952952,
+        "test_mise_mean": 0.22555760075278705,
+        "test_mise_std": 0.1864546919665077
+      },
+      "0.03": {
+        "val_mise_mean": 0.23380729890295054,
+        "val_mise_std": 0.20381667165312425,
+        "test_mise_mean": 0.23446047701043674,
+        "test_mise_std": 0.20202287162921811
+      },
+      "0.1": {
+        "val_mise_mean": 0.2528798960924816,
+        "val_mise_std": 0.23024389671111117,
+        "test_mise_mean": 0.2545878572368326,
+        "test_mise_std": 0.23010943702187303
+      },
+      "0.3": {
+        "val_mise_mean": 0.2926423742856765,
+        "val_mise_std": 0.2816519976323259,
+        "test_mise_mean": 0.29639286205006027,
+        "test_mise_std": 0.284339467896918
+      },
+      "1.0": {
+        "val_mise_mean": 0.34388217903793405,
+        "val_mise_std": 0.32898170924255815,
+        "test_mise_mean": 0.3502157280684649,
+        "test_mise_std": 0.3334788500226141
+      },
+      "3.0": {
+        "val_mise_mean": 0.426924885262084,
+        "val_mise_std": 0.40174342093314763,
+        "test_mise_mean": 0.4369968854934735,
+        "test_mise_std": 0.4097335812960205
+      }
+    },
+    "DRVAE (+recourse, LB)": {
+      "0.01": {
+        "val_mise_mean": 0.13515223176768773,
+        "val_mise_std": 0.09220894332785036,
+        "test_mise_mean": 0.13710914432461288,
+        "test_mise_std": 0.09524840194869937
+      },
+      "0.03": {
+        "val_mise_mean": 0.13779479605210526,
+        "val_mise_std": 0.093403315972654,
+        "test_mise_mean": 0.13848295147703554,
+        "test_mise_std": 0.09597726213018595
+      },
+      "0.1": {
+        "val_mise_mean": 0.14631655110395955,
+        "val_mise_std": 0.11374202137206463,
+        "test_mise_mean": 0.14751823134645886,
+        "test_mise_std": 0.11570746914210135
+      },
+      "0.3": {
+        "val_mise_mean": 0.16099782274746804,
+        "val_mise_std": 0.12071923159601677,
+        "test_mise_mean": 0.16075483024665793,
+        "test_mise_std": 0.12256003843248377
+      },
+      "1.0": {
+        "val_mise_mean": 0.1869260388119349,
+        "val_mise_std": 0.1541357178159174,
+        "test_mise_mean": 0.18838589921339582,
+        "test_mise_std": 0.15625847954986224
+      },
+      "3.0": {
+        "val_mise_mean": 0.24181450528640078,
+        "val_mise_std": 0.20046520512629948,
+        "test_mise_mean": 0.24383178619841275,
+        "test_mise_std": 0.20398107350704062
+      }
+    },
+    "DRVAE (+recourse, unweighted)": {
+      "0.01": {
+        "val_mise_mean": 0.24203050991726008,
+        "val_mise_std": 0.1586614086937093,
+        "test_mise_mean": 0.24261988773441423,
+        "test_mise_std": 0.1631635856706964
+      },
+      "0.03": {
+        "val_mise_mean": 0.2466614660031123,
+        "val_mise_std": 0.16910779581087493,
+        "test_mise_mean": 0.24709014101489227,
+        "test_mise_std": 0.17378811300755093
+      },
+      "0.1": {
+        "val_mise_mean": 0.2640903413029259,
+        "val_mise_std": 0.2029518901594936,
+        "test_mise_mean": 0.26518794848796085,
+        "test_mise_std": 0.20773877518510317
+      },
+      "0.3": {
+        "val_mise_mean": 0.28955408225282986,
+        "val_mise_std": 0.2368511702519854,
+        "test_mise_mean": 0.29107263389501536,
+        "test_mise_std": 0.24216815582064113
+      },
+      "1.0": {
+        "val_mise_mean": 0.33766341607290745,
+        "val_mise_std": 0.2831326081918176,
+        "test_mise_mean": 0.3405970902000815,
+        "test_mise_std": 0.29007932257848423
+      },
+      "3.0": {
+        "val_mise_mean": 0.4121427167989973,
+        "val_mise_std": 0.3319622773437644,
+        "test_mise_mean": 0.4141761955336433,
+        "test_mise_std": 0.3389611753043793
+      }
+    },
+    "LB-estimator": {
+      "0.01": {
+        "val_mise_mean": 0.578211182803265,
+        "val_mise_std": 0.5672845251346319,
+        "test_mise_mean": 0.5904718561516291,
+        "test_mise_std": 0.5724531329479031
+      },
+      "0.03": {
+        "val_mise_mean": 0.580480354771626,
+        "val_mise_std": 0.5710898618205966,
+        "test_mise_mean": 0.5924554988112007,
+        "test_mise_std": 0.5756218767744937
+      },
+      "0.1": {
+        "val_mise_mean": 0.5845386619740255,
+        "val_mise_std": 0.5786423219199365,
+        "test_mise_mean": 0.5961347831633925,
+        "test_mise_std": 0.582238486308569
+      },
+      "0.3": {
+        "val_mise_mean": 0.5858135510270874,
+        "val_mise_std": 0.5808402374442733,
+        "test_mise_mean": 0.5971781911840841,
+        "test_mise_std": 0.5839491617691923
+      },
+      "1.0": {
+        "val_mise_mean": 0.5890396379068309,
+        "val_mise_std": 0.5869965928186016,
+        "test_mise_mean": 0.6004047002865498,
+        "test_mise_std": 0.5896843186672684
+      },
+      "3.0": {
+        "val_mise_mean": 0.5889766530214529,
+        "val_mise_std": 0.586223182885127,
+        "test_mise_mean": 0.6003278464532793,
+        "test_mise_std": 0.5890422787392012
+      }
+    },
+    "Unweighted-estimator": {
+      "0.01": {
+        "val_mise_mean": 0.7077724513988604,
+        "val_mise_std": 0.30414553044313586,
+        "test_mise_mean": 0.7235785867989373,
+        "test_mise_std": 0.3126154143445545
+      },
+      "0.03": {
+        "val_mise_mean": 0.7077739814693593,
+        "val_mise_std": 0.3041474335796686,
+        "test_mise_mean": 0.7235797445965313,
+        "test_mise_std": 0.3126159430979162
+      },
+      "0.1": {
+        "val_mise_mean": 0.7077748813483213,
+        "val_mise_std": 0.3041488170865113,
+        "test_mise_mean": 0.7235806498170235,
+        "test_mise_std": 0.31261669679890414
+      },
+      "0.3": {
+        "val_mise_mean": 0.707775170285385,
+        "val_mise_std": 0.30414939455111517,
+        "test_mise_mean": 0.7235809905500876,
+        "test_mise_std": 0.31261706470161066
+      },
+      "1.0": {
+        "val_mise_mean": 0.7077752276757585,
+        "val_mise_std": 0.3041495915883923,
+        "test_mise_mean": 0.723581091969081,
+        "test_mise_std": 0.3126172225323726
+      },
+      "3.0": {
+        "val_mise_mean": 0.7077752098071137,
+        "val_mise_std": 0.30414961169422194,
+        "test_mise_mean": 0.723581098031644,
+        "test_mise_std": 0.3126172676237553
+      }
+    }
+  },
+  "best_lambdas": {
+    "MLP-regressor (+recourse, LB)": 0.1,
+    "MLP-regressor (+recourse, unweighted)": 0.1,
+    "TARNet (+recourse, LB)": 1.0,
+    "TARNet (+recourse, unweighted)": 0.3,
+    "DRNet (+recourse, LB)": 0.01,
+    "DRNet (+recourse, unweighted)": 0.01,
+    "VCNet (+recourse, LB)": 0.3,
+    "VCNet (+recourse, unweighted)": 0.3,
+    "TransTEE (+recourse, LB)": 0.01,
+    "TransTEE (+recourse, unweighted)": 0.01,
+    "ADMIT (+recourse, LB)": 0.01,
+    "ADMIT (+recourse, unweighted)": 0.01,
+    "DRVAE (+recourse, LB)": 0.01,
+    "DRVAE (+recourse, unweighted)": 0.01,
+    "LB-estimator": 0.01,
+    "Unweighted-estimator": 0.01
+  }
+}
